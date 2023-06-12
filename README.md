@@ -1,3 +1,2 @@
 # CalculadoraWeb
-Tentativa de criar um calculadora web usando HTML,CSS e Javascript
-Em procedimento
+Calculadora web usando HTML,CSS e Javascript (Ainda não está responsiva)

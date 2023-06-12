@@ -11,17 +11,22 @@
                 padding: 0;
             }
             .Background{
-                background-image: linear-gradient(45deg,black, darkblue);
+                background-image: url(https://th.bing.com/th/id/R.920cfd711d91847fb9db0659c42986b0?rik=wcQbGdYvF4aMjg&pid=ImgRaw&r=0);
+                background-size: cover;
+                background-repeat: no-repeat;
                 height: 100vh;
+            }
+            #titulo{
+                background-color: black;
+                text-align: center;
                 color: white;
                 font-family: 'Courier New', Courier, monospace;
-                text-align: center;
             }
             .calculadora{
                 position: absolute;
                 background-color: dimgrey;
                 top: 15%;
-                left: 40%;
+                left: 39%;
                 border-radius: 10px;
                 padding: 15px;
                 color: white;
@@ -51,11 +56,11 @@
                 font-size: 30px;
                 text-align: right;
             }
-            #C{
-                background-color: darkred;
+            #Up{
+                background-color: grey;
             }
-            #C:hover{
-                background-color: red;
+            #Up:hover{
+                background-color: darkgrey;
             }
             #Op{
                 background-color: darkgoldenrod;
@@ -74,42 +79,60 @@
     </head>
     <body>
         <div class="Background">
-            <h1>Calculadora Web</h1>
-        </div>
+            <h1 id="titulo">Calculadora Web</h1>
         <div class="calculadora">
             <h1>Calculadora</h1>
-            <p id="resultado">resultado</p>
+            <p id="resultado"></p>
             <table>
                 <tr>
-                    <td><button class="button" id="C">C</button></td>
-                    <td><button class="button" id="Op">+/-</button></td>
-                    <td><button class="button" id="Op">%</button></td>
-                    <td><button class="button" id="Op">/</button></td>
+                    <td><button class="button" id="Up" onclick="wash()">C</button></td>
+                    <td><button class="button" id="Up" onclick="back('<#')"><#</button></td>
+                    <td><button class="button" id="Up" onclick="insert('**2')">X²</button></td>
+                    <td><button class="button" id="Op" onclick="insert('/')">/</button></td>
                 </tr>
                 <tr>
-                    <td><button class="button">1</button></td>
-                    <td><button class="button">2</button></td>
-                    <td><button class="button">3</button></td>
-                    <td><button class="button" id="Op">X</button></td>
+                    <td><button class="button" onclick="insert('1')">1</button></td>
+                    <td><button class="button" onclick="insert('2')">2</button></td>
+                    <td><button class="button" onclick="insert('3')">3</button></td>
+                    <td><button class="button" id="Op" onclick="insert('*')">X</button></td>
                 </tr>
                 <tr>
-                    <td><button class="button">4</button></td>
-                    <td><button class="button">5</button></td>
-                    <td><button class="button">6</button></td>
-                    <td><button class="button" id="Op">-</button></td>
+                    <td><button class="button" onclick="insert('4')">4</button></td>
+                    <td><button class="button" onclick="insert('5')">5</button></td>
+                    <td><button class="button" onclick="insert('6')">6</button></td>
+                    <td><button class="button" id="Op" onclick="insert('-')">-</button></td>
                 </tr>
                 <tr>
-                    <td><button class="button">7</button></td>
-                    <td><button class="button">8</button></td>
-                    <td><button class="button">9</button></td>
-                    <td><button class="button" id="Op">+</button></td>
+                    <td><button class="button" onclick="insert('7')">7</button></td>
+                    <td><button class="button" onclick="insert('8')">8</button></td>
+                    <td><button class="button" onclick="insert('9')">9</button></td>
+                    <td><button class="button" id="Op" onclick="insert('+')">+</button></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button class="button" style="width: 152px;">0</button></td>
-                    <td><button class="button" id="Op">.</button></td>
-                    <td><button class="button" id="Ig">=</button></td>
+                    <td colspan="2"><button class="button" style="width: 152px;" onclick="insert('0')">0</button></td>
+                    <td><button class="button" onclick="insert('.')">.</button></td>
+                    <td><button class="button" id="Ig" onclick="calculo()">=</button></td>
                 </tr>
             </table>
         </div>
+        <script>
+            function insert(num){
+                let numero = document.getElementById('resultado').innerHTML;
+                document.getElementById('resultado').innerHTML = numero + num;
+            }
+            function wash(){
+                document.getElementById('resultado').innerHTML ="";
+            }
+            function back(){
+                let resultado = document.getElementById('resultado').innerHTML;
+                document.getElementById('resultado').innerHTML = resultado.substring(0,resultado.length-1);
+            }
+            function calculo(){
+                let resultado = document.getElementById('resultado').innerHTML;
+                if(resultado){
+                    document.getElementById('resultado').innerHTML=eval(resultado);
+                }
+            }
+        </script>
     </body>
 </html>

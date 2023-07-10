@@ -1,2 +1,2 @@
-# CalculadoraWeb
-Calculadora web usando HTML,CSS e Javascript feita com o objetivo de estudo (Ainda não está responsiva)
+# WebCalculator
+Web calculator using HTML, CSS and Javascript made for the purpose of study (Not yet responsive)
